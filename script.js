@@ -3,7 +3,11 @@ var dateSoon;
 var dateDiff;
 
 function init() {
-    dateSoon = new Date(prompt("Enter date to count to (-12hrs):"));
+    dateSoon = new Date();
+    if (!confirm("Today? OK = Yes, Cancel = No:")) {
+        dateSoon.setFullYear((prompt("Year:")), (prompt("Month:")), (prompt("Day:")));
+    }
+    dateSoon.setHours((prompt("Hour:")-12), (prompt("Minute:")));
     setInterval(function () {
         dateNow = new Date();
         document.getElementById('time').innerHTML = dateNow.toLocaleTimeString();
@@ -15,4 +19,4 @@ function init() {
 window.onload = init();
 window.onerror = function () {
     this.alert(ev);
-}
+};
