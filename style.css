@@ -1,18 +1,28 @@
 body {
-    font-family: "Roboto Mono", monospace;
+    font-family: "Camcorder Monospaced", "Roboto Mono", monospace;
     text-align: center;
     margin: 100px;
+    background-color: black;
+    color: white;
+    text-shadow: grey 0px 2px 5px;
+    font-weight: normal;
+    font-size: 25px;
 }
 
 button {
-    font-family: "Roboto Mono", monospace;
-    color: white;
-    background-color: black;
+    font-family: "Camcorder Monospaced", "Roboto Mono", monospace;
+    color: black;
+    background-color: white;
     border: none;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: normal;
     padding: 5px;
     border-radius: 10px;
     box-shadow: grey 0px 2px 5px;
     margin-top: 100px;
+}
+
+h1 {
+    font-size: 100px;
+    margin-top: 5px;
 }
