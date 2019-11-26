@@ -36,8 +36,8 @@ function init() {
         } else {
             countValues[3] = dateDiff.getMilliseconds();
         }
-        document.getElementById('count').innerHTML = countValues[0] + ":" + countValues[1] + ":" + countValues[2] + "." + countValues[3];
-    }, 10);
+        document.getElementById('count').innerHTML = countValues[0] + ":" + countValues[1] + ":" + countValues[2] + "<span>." + countValues[3] + "</span>";
+    }, 1);
 }
 
 window.onload = init();
