@@ -12,8 +12,8 @@ function init() {
         dateNow = new Date();
         document.getElementById('time').innerHTML = dateNow.toLocaleTimeString();
         dateDiff = new Date(dateSoon - dateNow);
-        document.getElementById('count').innerHTML = dateDiff.toLocaleTimeString();
-    }, 100);
+        document.getElementById('count').innerHTML = (dateDiff.getHours() + "h " + dateDiff.getMinutes() + "m " + dateDiff.getSeconds() + "s " + dateDiff.getMilliseconds() + "ms");
+    }, 10);
 }
 
 window.onload = init();
