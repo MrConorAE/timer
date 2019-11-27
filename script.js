@@ -10,6 +10,7 @@ function init() {
     }
     dateSoon.setHours((prompt("Hour:")-12), (prompt("Minute:")));
     dateSoon.setSeconds(0);
+    dateSoon.setMilliseconds(0);
     setInterval(function () {
         dateNow = new Date();
         document.getElementById('time').innerHTML = dateNow.toLocaleTimeString();
