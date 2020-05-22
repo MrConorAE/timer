@@ -1,31 +1,48 @@
 body {
-    font-family: "Camcorder Monospaced", "Roboto Mono", monospace;
+    font-family: "Roboto Mono", monospace;
     text-align: center;
     margin: 100px;
-    background-color: black;
-    color: white;
     text-shadow: grey 0px 2px 5px;
     font-weight: normal;
     font-size: 25px;
     transition: all 0.5s;
 }
 
-button {
-    font-family: "Camcorder Monospaced", "Roboto Mono", monospace;
-    color: black;
+.running {
+    background-color: black;
+    color: white;
+}
+
+.stopped {
     background-color: white;
+    color: black;
+}
+
+button {
+    font-family: "Roboto Mono", monospace;
     border: none;
     font-size: 20px;
     font-weight: normal;
     padding: 5px;
     border-radius: 10px;
-    box-shadow: grey 0px 2px 5px;
     margin-top: 100px;
+    transition: 0.3s all;
+}
+
+body.running button {
+    color: black;
+    background-color: white;
+}
+
+body.stopped button {
+    color: white;
+    background-color: black;
 }
 
 h1 {
     font-size: 100px;
     margin-top: 5px;
+    font-weight: normal;
 }
 
 span {
