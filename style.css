@@ -2,7 +2,6 @@ body {
     font-family: "Roboto Mono", monospace;
     text-align: center;
     margin: 100px 0px 0px 0px;
-    text-shadow: grey 0px 2px 5px;
     font-weight: normal;
     font-size: 25px;
     transition: all 0.5s;
@@ -61,11 +60,9 @@ i {
 @keyframes spin {
     0% {
         transform: rotate(0deg);
-        text-shadow: grey 0px 2px 5px;
     }
 
     100% {
         transform: rotate(180deg);
-        text-shadow: grey 0px -2px 5px;
     }
 }
