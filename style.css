@@ -1,7 +1,7 @@
 body {
     font-family: "Roboto Mono", monospace;
     text-align: center;
-    margin: 100px;
+    margin: 100px 0px 0px 0px;
     text-shadow: grey 0px 2px 5px;
     font-weight: normal;
     font-size: 25px;
@@ -27,16 +27,15 @@ button {
     border-radius: 10px;
     margin-top: 100px;
     transition: 0.3s all;
+    background: transparent;
 }
 
 body.running button {
-    color: black;
-    background-color: white;
+    color: white;
 }
 
 body.stopped button {
-    color: white;
-    background-color: black;
+    color: black;
 }
 
 h1 {
