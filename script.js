@@ -4,15 +4,27 @@ var dateDiff;
 var countFinished = true;
 
 function set() {
-    dateSoon = new Date();
-    if (!confirm("Is the finish time today?\nOK = Yes, Cancel = No")) {
-        dateSoon.setFullYear((prompt("Year:")), (prompt("Month:")), (prompt("Day:")));
+    if (countFinished == true) {
+        dateSoon = new Date();
+        if (!confirm("Is the finish time today?\nOK = Yes, Cancel = No")) {
+            dateSoon.setFullYear((prompt("Year:")), (prompt("Month:")), (prompt("Day:")));
+        }
+        dateSoon.setHours((prompt("Hour:")), (prompt("Minute:")));
+        dateSoon.setSeconds(0);
+        dateSoon.setMilliseconds(0);
+        countFinished = false;
+        document.getElementById('body').className = "running";
+        document.getElementById('count').className = "";
+        document.getElementById('icon').className = "fas fa-hourglass spinning";
+        document.getElementById('btn-icon').className = "fas fa-stop";
+    } else {
+        countFinished = true;
+        document.getElementById('body').className = "stopped";
+        document.getElementById('count').className = "count-dim";
+        document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
+        document.getElementById('btn-icon').className = "fas fa-play";
     }
-    dateSoon.setHours((prompt("Hour:")), (prompt("Minute:")));
-    dateSoon.setSeconds(0);
-    dateSoon.setMilliseconds(0);
-    countFinished = false;
-    document.getElementById('body').className = "running";
+
 }
 
 function updateTime() {
@@ -47,21 +59,27 @@ function updateCount() {
     var countValues = [];
     if (countFinished == false) {
         dateDiff = new Date(dateSoon - dateNow);
-        if (String(dateDiff.getHours() - 12).length == 1) {
-            countValues[0] = "0" + dateDiff.getHours() - 12;
+        // Hours
+        if (String(dateDiff.getHours() - 12) == '0') {
+            countValues[0] = "00";
+        } else if (String(dateDiff.getHours() - 12).length == 1) {
+            countValues[0] = "0" + (dateDiff.getHours() - 12);
         } else {
-            countValues[0] = dateDiff.getHours() - 12;
+            countValues[0] = (dateDiff.getHours() - 12);
         }
+        // Minutes
         if (String(dateDiff.getMinutes()).length == 1) {
             countValues[1] = "0" + dateDiff.getMinutes();
         } else {
             countValues[1] = dateDiff.getMinutes();
         }
+        // Seconds
         if (String(dateDiff.getSeconds()).length == 1) {
             countValues[2] = "0" + dateDiff.getSeconds();
         } else {
             countValues[2] = dateDiff.getSeconds();
         }
+        // Milliseconds
         if (String(dateDiff.getMilliseconds()).length == 2) {
             countValues[3] = "0" + dateDiff.getMilliseconds();
         } else if (String(dateDiff.getMilliseconds()).length == 1) {
@@ -71,19 +89,24 @@ function updateCount() {
         }
         document.getElementById('count').innerHTML = countValues[0] + ":" + countValues[1] + ":" + countValues[2] + "<span>." + countValues[3] + "</span>";
     } else {
-        document.getElementById('count').innerHTML = "--:--:--<span>.---</span>";
+        document.getElementById('count').innerHTML = "00:00:00<span>.000</span>";
     }
     if (countFinished == false) {
         if (dateNow.getTime() >= dateSoon.getTime()) {
             countFinished = true;
             document.getElementById('body').className = "stopped";
-            document.getElementById('icon').className = "fas fa-hourglass-end";
-            console.warn("stopped");
+            document.getElementById('count').className = "count-dim";
+            document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
         } else {
             countFinished = false;
             document.getElementById('body').className = "running";
+            document.getElementById('count').className = "";
             document.getElementById('icon').className = "fas fa-hourglass spinning";
         }
+    } else {
+        document.getElementById('body').className = "stopped";
+        document.getElementById('count').className = "count-dim";
+        document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
     }
 }
 
