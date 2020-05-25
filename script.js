@@ -18,11 +18,13 @@ function set() {
         document.getElementById('icon').className = "fas fa-hourglass spinning";
         document.getElementById('btn-icon').className = "fas fa-stop";
     } else {
-        countFinished = true;
-        document.getElementById('body').className = "stopped";
-        document.getElementById('count').className = "count-dim";
-        document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
-        document.getElementById('btn-icon').className = "fas fa-play";
+        if (confirm("Are you sure you want to stop this timer?\nOK = Yes, Cancel = No")) {
+            countFinished = true;
+            document.getElementById('body').className = "stopped";
+            document.getElementById('count').className = "count-dim";
+            document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
+            document.getElementById('btn-icon').className = "fas fa-play";
+        }
     }
 
 }
@@ -97,16 +99,19 @@ function updateCount() {
             document.getElementById('body').className = "stopped";
             document.getElementById('count').className = "count-dim";
             document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
+            document.getElementById('btn-icon').className = "fas fa-play";
         } else {
             countFinished = false;
             document.getElementById('body').className = "running";
             document.getElementById('count').className = "";
             document.getElementById('icon').className = "fas fa-hourglass spinning";
+            document.getElementById('btn-icon').className = "fas fa-stop";
         }
     } else {
         document.getElementById('body').className = "stopped";
         document.getElementById('count').className = "count-dim";
         document.getElementById('icon').className = "fas fa-hourglass-end count-dim";
+        document.getElementById('btn-icon').className = "fas fa-play";
     }
 }
 
